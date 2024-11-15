@@ -36,26 +36,22 @@ Finally, if you hide data in an image file, that is, embed the data, the image f
 
 When you extract the data, the image file is referred to as a stego file.
 
-To embed data in a file, called a cover-file, which option do we use?
+1.1 To embed data in a file, called a cover-file, which option do we use?
 cf
 
-To extract data from a file, called a stego file, which option do we use?
+1.2 To extract data from a file, called a stego file, which option do we use?
 sf
 
 
 EXTRACT EMBEDDED (HIDDEN) DATA FROM AN IMAGE WITH STEGHIDE
 
-
 You are now ready for your first steganalysis task.
 
 Change directory to the ImageAnalysis directory using the cd command. For example, run:
 
-
-
 cd /home/administrator/Desktop/Steganalysis/Steganalysisv2/ImageAnalysis
 
 List and look at the files in this directory by running the ls command:
-
 
 ls
 
@@ -109,7 +105,6 @@ Vanilla
 
 
 EMBED SOME SECRET DATA IN AN IMAGE FILE
-
 
 Previously, you detected (extracted) secret data: that is, you did steganalysis.
 
