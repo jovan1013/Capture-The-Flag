@@ -1,0 +1,107 @@
+DETECT UNEXPECTED FILES IN ZIP FILES
+
+
+
+Steganalysis can be done with tools you might use yourself for other tasks.
+
+The tool 7-Zip is used to zip and unzip files (compress/decompress files) in Windows. You can use it to detect steganography.
+
+
+
+Step 1: Find the Zip Files
+
+Using File Explorer, go to the ZipFileAnalysis directory and look at the files
+Find the path at the top
+Click after ZipFileAnalysis so that the full path is now visible and turns blue as shown in the screenshot below
+
+
+
+
+
+
+
+
+Step 2:  Copy the Path from File Explorer
+
+Hold the key Ctrl  and the letter a (to select the full path)
+Release the Ctrl+a
+Hold Ctrl + c (to copy the path) and release them
+
+Step 3: Open 7-Zip
+
+Find the search box in the middle of the task bar
+Type 7-zip
+Click 7-Zip File Manager at the top of the search results to open 7-Zip.
+Step 4:  Paste the Path into 7-Zip
+
+Click your mouse in the white box in 7-zip so that when you paste the path (next step), it looks like the screenshot below
+To paste, use Ctrl + v (to paste the full path)
+Press enter
+You should now see two files ending with .jpg (not shown here)
+
+
+
+
+
+
+Step 5:  Steganalysis using 7-Zip
+
+Double Click each .jpg file to answer the questions
+For the file ending in .pdf, choose Adobe Acrobat Reader
+Note: To go up to the previous directory to find the second file, click the little yellow icon with a green arrow to the left of the path.
+
+What is the Fob-Key code that you found?
+
+671avP1
+
+Hint
+
+What is the server access code that you found?
+
+98AA2BRK
+
+EMBED A ZIP FILE IN AN IMAGE
+
+
+The steganography technique shown here uses the copy command.
+
+
+
+You will embed a zip file into an image with copy.
+
+Open a command prompt as shown in the cheat sheet.
+
+
+
+Change to the CoverFileSecretFile directory, for example, use this command:
+
+
+
+cd C:\Users\FESAdmin\Desktop\Steganalysis\Steganalysisv2\ZipFileAnalysis\CoverFileSecretFile
+
+You should see an image and a text file. You will first need to create a zip file.
+
+Step 1: Create a Zip File
+
+Open File Explorer and go to the CoverFileSecretFile directory
+Right-Click the file secret.txt
+Left-Click Compress to ZIP file
+Notice the new file called secret.zip (a yellow icon with a zipper).
+Next, you will use the copy  command with the /b  option to combine the image and the zip file into one.
+
+
+
+Step 2: Hide the Zip File into the Image with Copy
+
+At the command prompt, run dir  to confirm that secret.zip exists
+Run the following command:
+copy /b vecteezydotcom2.jpg + secret.zip  resultsfile.jpg
+Verify that results.jpg contains the zip file by using 7-ZIP as you did before.
+If you only see an image, you probably used secret.txt instead of secret.zip. Try again.
+
+Finally, from File Explorer, double-click resultsfile.jpg and you should see the image (unlike what you see in 7-Zip).
+
+
+Note: The image looks normal and you cannot tell that it contains a zip file!
+
+Tick the box if you can read the secret.txt file from 7-Zip
