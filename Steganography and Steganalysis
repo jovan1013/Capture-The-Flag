@@ -1,7 +1,167 @@
 GET STARTED WITH THE STEGANALYSIS TOOL STEGHIDE
 
 The steghide tool is run from the command line, also called the Terminal in Linux.
-
 If this is your first time hearing about a command line, please practice with it by going through the examples in the short cheat sheet provided under the Resources tab next to Virtual Machines tab.
-
 Let's get started with steganalysis.
+
+You work as a cyber security analyst for the company Weather4U that produces satellite images for weather stations. The security system has detected a large number of images being downloaded. Although this is normal, it is not normal that files are now slightly different than before. Steganography is suspected.
+
+You are asked to examine some files with the steganalysis tool called steghide.
+
+Log in the Kali virtual machine using the credentials given in the Introduction.
+
+
+As shown in the cheat sheet, open a Terminal window to get access to the command line prompt, which is shown here: 
+
+administrator㉿kali2023)-[~]
+
+It is always good to look at the help menus of a tool or a command. Run this command and look at the examples of how to use the tool near the end.
+
+steghide --help
+
+
+Notice in the --help menu that two words are emphasized:
+
+embed
+extract
+To embed data in a file means to insert text in a file, that is, hide it in the file.
+
+To extract data from a file is the opposite: pull out the hidden data.
+
+Again in the --help menu, notice the word options:
+
+you add options to the command to give it extra information
+for example, -sf is an option.
+Finally, if you hide data in an image file, that is, embed the data, the image file is referred to as a cover-file.
+
+When you extract the data, the image file is referred to as a stego file.
+
+To embed data in a file, called a cover-file, which option do we use?
+cf
+
+To extract data from a file, called a stego file, which option do we use?
+sf
+
+
+EXTRACT EMBEDDED (HIDDEN) DATA FROM AN IMAGE WITH STEGHIDE
+
+
+You are now ready for your first steganalysis task.
+
+Change directory to the ImageAnalysis directory using the cd command. For example, run:
+
+
+
+cd /home/administrator/Desktop/Steganalysis/Steganalysisv2/ImageAnalysis
+
+List and look at the files in this directory by running the ls command:
+
+
+ls
+
+The first step is to determine if a file potentially contains embedded data. Use info to examine the following file.
+
+steghide info StegoSplash.jpg
+
+
+Then:
+
+Type y when it asks you get information.
+Hit the enter key when it asks Enter passphrase.
+Read the information it provides.
+
+It mentions an embedded file; this is the name of the file that initially held the secret data.
+
+It then gives the size of the secret data.
+
+Notice that encrypted and compressed (zipped) are no. You may have heard of these terms. We will not focus on encryption and compression in this course; however, it is good to know that steganography, encryption and compression are not the same thing. They simply can be combined to increase security.
+
+Enough explanations! Let's extract our hidden data.
+
+Run:
+
+steghide extract -sf StegoSplash.jpg -xf hidden.txt
+
+-sf   is the option giving the stego file
+-xf   is the option for the new file for the secret data
+
+Now view the contents of the file using the cat command you learned in the cheat sheet.
+
+cat hidden.txt
+What are the first four characters of the hidden data?
+
+AMEX
+
+APPLY STEGANALYSIS ON THE SECOND FILE
+
+
+Verify if the file vecteezydotcom1.jpg has hidden data; if so, extract it.
+
+It is important to realize that extracting hidden data does not remove it from the image!!
+
+Note: To avoid over-writing existing files, use a different file name for the -xf option.
+
+What is the name of the file that was used to initially hold the hidden data?
+secretrecipe.txt
+
+What is the last word in the hidden data?
+Vanilla
+
+
+EMBED SOME SECRET DATA IN AN IMAGE FILE
+
+
+Previously, you detected (extracted) secret data: that is, you did steganalysis.
+
+Hiding (embedding) data is doing steganography itself.
+
+Change directory to the one called:
+
+UnmodifiedImage
+
+It contains one image called:  vecteezydotcom3.jpg.
+
+CREATE SECRET DATA
+
+Create secret data and save it to a file, also shown in the cheat sheet.
+
+Run:
+
+echo 'Phone number 555-1234' > mysecret.txt
+
+List the files in the directory to confirm your file exists using the ls command.
+
+
+Verify its content using the cat command. Always test your work, never assume something was successful.
+
+USE STEGHIDE
+
+Review the examples at the bottom of the --help menu to build your steghide command to embed a file.
+
+Remember that cover-file refers to the original file in which you hide the data. Use image vecteezydotcom3.jpg.
+
+Also remember that the mysecret.txt file is the one that is being embedded.
+
+Now run the command you have built above.
+
+It asks you for a passphrase.
+
+
+ADD A PASSPHRASE
+
+With embedding, you can add a passphrase, for example, abc123, to add an extra security layer. Previously, there was no passphrase and you simply hit the enter key to proceed.
+
+You will need to type the passphrase twice.
+
+Now test that the above worked by extracting your secret data into a different file name and then use cat to read it.
+
+Congratulations! You have created your first stego file.
+
+What are the first two words of your command?
+
+steghide embed
+
+Did steghide compress (zip) your file?
+
+yes
+
