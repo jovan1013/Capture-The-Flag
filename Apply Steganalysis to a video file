@@ -1,1 +1,58 @@
+EXTRACT EMBEDDED DATA FROM A VIDEO USING A SIMPLE TEXT EDITOR
 
+Steganography and Steganalysis do not always require specialized tools like steghide.
+
+If a non-text file can be modified with a simple text editor, and it still works as it should, then it can be used to hide data.
+
+Notepad is a simple editor to modify text files on a Windows machine and you will use it for steganalysis.
+
+You will need to open the VideoAnalysis directory as follows, where it is also shown in the cheat sheet.
+
+
+On the VM's desktop, double-click the yellow folder called Steganalysis.
+
+
+Once File Explorer is opened, double-click Steganalysisv2 and finally double-click the VideoAnalysis directory.
+
+Since a video file is not a text file, you will need some extra steps to open a video file with Notepad.
+
+
+
+Step 1: Open with Another App
+
+Right-click the file named video.mp4
+Click Open with
+Then, near the bottom, click Choose another app
+Step 2: Select Notepad
+
+Click Notepad and click Just once
+The video.mp4 file should now be opened in Notepad.
+
+During normal investigations, you would not know for what you are looking; you would scroll through the whole file looking for something that does not belong there.
+
+To demonstrate that a video can indeed contain hidden data, search for the word username. Make sure your mouse is over the Notepad window before searching!
+
+To search, hold the Ctrl key and hit the letter f  to open a search box.
+
+Type the word username and press enter to start the search. Once you find one, look below it to answer the questions.
+
+What is the admin password hidden in the video file?
+adminabc123
+
+
+APPLY STEGANALYSIS TO A SECOND VIDEO FILE 
+
+Open the wind surf-yatch.mp4 file also using Notepad.
+
+With specialized files like video files, it is normal that text is added near the end of a file to give some details about the video.
+
+Adding hidden data at that location is less likely to corrupt the video file.
+
+The purpose of some hidden data may not be immediately obvious. But they can provide clues to keep in mind.
+
+
+
+With this file, the words username and password were not added but other information was added.
+
+What is a suspicious title in this file?
+MASTERCARD
